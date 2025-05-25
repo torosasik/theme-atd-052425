@@ -10,14 +10,10 @@
     dir="rtl"
   {% endif %}
 >
-{% include 'wp-page-speed-optimization-header' %}
-{% comment %}
-  <head>
+<head>
 {% comment %}EasylockdownHeadBegin{% endcomment %}{% capture elhRender %}{% render 'easylockdown_head', easylockdownRender: true, easylockdownOnlySpecialPriceSelector: easylockdownOnlySpecialPriceSelector, easylockdownCustomPriceSelector: easylockdownCustomPriceSelector %}{% endcapture %}{% assign elhRender = elhRender | split: '--elhResults--'%}{{ elhRender[0] }}{% comment %}EasylockdownHeadEnd{% endcomment %}
 {% include 'speedboostr-seo' %}
 {% include 'limespot' %}{% render 'yoast-seo' %}
-{% endcomment %}
-  
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -67,6 +63,8 @@
         <meta name="description" content="{{ page_description | escape }}">
         {%- comment -%} End Yoast auto-disable. {%- endcomment -%}
       {%- endif -%}
+    {% else %}
+      <meta name="description" content="American Tile Depot - Premium tiles, marble, travertine, and flooring. Quality materials for your home improvement projects.">
     {% endif %}
 
     {% liquid
@@ -325,7 +323,15 @@
       justify-content: center;
       }
     </style>
-    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/mJcMHu3TQ8Y8YW6mVRrtdGwVa48lPPJTHuSztL5s" async></script>
+    <script>
+      // Delay Yotpo loading for better performance
+      setTimeout(function() {
+        var script = document.createElement('script');
+        script.src = 'https://cdn-widgetsrepository.yotpo.com/v1/loader/mJcMHu3TQ8Y8YW6mVRrtdGwVa48lPPJTHuSztL5s';
+        script.async = true;
+        document.head.appendChild(script);
+      }, 3000);
+    </script>
   <!-- WPD Start -->
                 {% if customer.tags.size > 0 and template != 'cart' %}
                 <script>
